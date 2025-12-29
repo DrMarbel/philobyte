@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philobyte | Digital Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PHILO<span class="highlight">BYTE</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Mission</a></li>
+            <li><a href="#arsenal">Arsenal</a></li>
+            <li><a href="#tracker">Tracker</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>PHILOBYTE</h1>
+            <p>Forging Digital Reality. Driven by Logic.</p>
+            <div class="hero-btns">
+                <a href="#tracker" class="btn">Active Projects</a>
+                <a href="#arsenal" class="btn btn-outline">View Stack</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="container split-section">
+        <div class="card entity fade-in-scroll">
+            <h2>The Mission</h2>
+            <h3>Philobyte</h3>
+            <p>Philobyte is a software development initiative dedicated to precision and utility. We design digital tools that prioritize robust architecture and user respect, eliminating bloat in favor of performance.</p>
+        </div>
+        <div class="card architect fade-in-scroll">
+            <h2>The Developer</h2>
+            <h3>Lead Architect</h3>
+            <p>Behind the interface is a single focused mind. I specialize in full-stack development, bridging raw backend logic with seamless frontend experiences. I build what is necessary, and I build it to last.</p>
+        </div>
+    </section>
+
+    <section id="arsenal" class="container">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="tech-grid fade-in-scroll">
+            <div class="tech-card">
+                <i class="fab fa-html5"></i>
+                <h3>Frontend</h3>
+                <p>HTML5, CSS3, JavaScript</p>
+            </div>
+            <div class="tech-card">
+                <i class="fab fa-python"></i>
+                <h3>Backend & Logic</h3>
+                <p>Python, Bash Scripting</p>
+            </div>
+            <div class="tech-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Environment</h3>
+                <p>Android, Termux, Acode</p>
+            </div>
+            <div class="tech-card">
+                <i class="fas fa-music"></i>
+                <h3>Audio & Creative</h3>
+                <p>Sound Engineering, World Building</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tracker" class="container">
+        <h2 class="section-title">Current Operations</h2>
+        <div class="tracker-board fade-in-scroll">
+            
+            <div class="status-item active-project">
+                <div class="status-header">
+                    <span class="badge working">IN DEVELOPMENT</span>
+                </div>
+                <h3>Project Endgeon Lite</h3>
+                <p>A roguelike dungeon crawler designed specifically for the Android/Termux environment. Focusing on text-based mechanics and procedural generation.</p>
+                <div class="progress-bar">
+                    <div class="fill" style="width: 45%;"></div>
+                </div>
+                <span class="percent">45% Complete</span>
+            </div>
+            
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Haunter</h3>
+                <p>Initial concept and scope definition.</p>
+            </div>
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Trader</h3>
+                <p>Architecture outline and logic flow analysis.</p>
+            </div>
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Instigate</h3>
+                <p>Feasibility study and core requirement gathering.</p>
+            </div>
+             <div class="status-item">
+                <span class="badge planning">CONCEPT</span>
+                <h3>Vaisian Dreamer</h3>
+                <p>Multimedia project involving audio production and lyrical narrative.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="container">
+        <h2 class="section-title">Release Timeline</h2>
+        <div class="timeline-wrapper">
+            <div class="timeline-item left fade-in-scroll">
+                <div class="content">
+                    <h3>v1.0 - Philobyte Live</h3>
+                    <span class="date">Dec 2025</span>
+                    <p>Official deployment of the Philobyte central portfolio and tracker.</p>
+                </div>
+            </div>
+            <div class="timeline-item right fade-in-scroll">
+                <div class="content">
+                    <h3>v0.1 - Endgeon Proto</h3>
+                    <span class="date">Oct 2025</span>
+                    <p>Initial logic tests for Project Endgeon Lite on local Android environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Philobyte. All rights reserved.</p>
+    </footer>
+
+    <div class="terminal-toggle" onclick="toggleTerminal()">
+        <i class="fas fa-terminal"></i>
+    </div>
+
+    <div id="terminal-modal" class="terminal-hidden" style="display: none;">
+        <div class="terminal-header">
+            <span>user@philobyte:~</span>
+            <span class="term-close" onclick="toggleTerminal()">_</span>
+        </div>
+        <div class="terminal-body" id="terminal-output">
+            <p>Philobyte OS v1.0. Type 'help' for commands.</p>
+            <div class="input-line">
+                <span class="prompt">$</span>
+                <input type="text" id="cmd-input" autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

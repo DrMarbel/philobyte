@@ -1,0 +1,644 @@
+/* ==========================================================================
+   PHILOBYTE & MARBEL SOFTWORKS - MASTER STYLESHEET
+==========================================================================
+
+   TABLE OF CONTENTS
+   1.  CSS Variables (Theme Configuration)
+   2.  Reset & Global Styles
+   3.  Navigation Bar
+   4.  Hero Section
+   5.  Layout Utilities (Containers, Titles)
+   6.  Components: Cards & Grids
+   7.  Components: Buttons
+   8.  Feature: Logic Lab (Canvas Console)
+   9.  Feature: Project Tracker & Status
+   10. Feature: Timeline
+   11. Widget: Terminal
+   12. Footer
+   13. Animations & Responsive Breakpoints
+
+   LEGEND - CLASSES & IDs
+   -----------------------------------------------------------------------
+   .container ........ Centers content with max-width
+   .card ............. Basic content box with border/bg
+   .btn, .btn-accent . Button styles (Standard & Primary)
+   .navbar ........... Top navigation bar
+   .hero ............. Top landing area
+   .split-section .... 2-column grid layout
+   .lab-console ...... Container for the Logic Lab canvas
+   #lab-canvas ....... The actual HTML canvas element
+   #terminal-modal ... The popup terminal window
+   .timeline-item .... Individual event on the vertical timeline
+   .footer-section ... Columns inside the footer (Legal, Nav, Social)
+   -----------------------------------------------------------------------
+*/
+
+/* -----------------------------------------------------------------------
+   1. CSS VARIABLES (THEME CONFIGURATION)
+   ----------------------------------------------------------------------- */
+:root {
+    /* Backgrounds */
+    --bg-dark: #0f172a;        /* Main Page Background */
+    --bg-card: #1e293b;        /* Card/Module Background */
+    --terminal-bg: rgba(10, 10, 10, 0.95);
+
+    /* Text Colors */
+    --text-main: #e2e8f0;      /* Primary Text */
+    --text-muted: #94a3b8;     /* Secondary/Description Text */
+    --terminal-green: #22c55e; /* Terminal Output Text */
+
+    /* Accent Colors */
+    --accent: #7800FF;         /* Primary Brand Color (Purple) */
+    --accent-alt: #6a5acd;     /* Secondary Purple (Slate Blue) */
+    --accent-red: #ef4444;     /* Error/Danger/Action */
+    --accent-green: #22c55e;   /* Success/Go */
+    
+    /* Effects */
+    --accent-glow: rgba(56, 189, 248, 0.2);
+}
+
+/* -----------------------------------------------------------------------
+   2. RESET & GLOBAL STYLES
+   ----------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* -----------------------------------------------------------------------
+   3. NAVIGATION BAR
+   ----------------------------------------------------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(15, 23, 42, 0.95); /* Slight transparency */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #334155;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* -----------------------------------------------------------------------
+   4. HERO SECTION
+   ----------------------------------------------------------------------- */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.hero-btns {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* -----------------------------------------------------------------------
+   5. LAYOUT UTILITIES
+   ----------------------------------------------------------------------- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+}
+
+/* Dual Profile / Split Layouts */
+.split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* -----------------------------------------------------------------------
+   6. COMPONENTS: CARDS & GRIDS
+   ----------------------------------------------------------------------- */
+/* Generic Card */
+.card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--accent-glow);
+    border-color: var(--accent);
+}
+
+/* Tech Grid Cards */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.tech-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border: 1px solid #334155;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.tech-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.tech-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.tech-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* -----------------------------------------------------------------------
+   7. COMPONENTS: BUTTONS
+   ----------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin-top: 25px; /* Spacing from content above */
+    font-family: monospace;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Default button style */
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn:hover {
+    box-shadow: 0 0 15px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    margin-top: 0; /* Reset margin for inline use in Hero */
+    padding: 10px 20px;
+}
+
+/* Primary Call-to-Action Style */
+.btn-accent {
+    background-color: var(--accent-alt);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-top: 25px;
+}
+
+.btn-accent:hover {
+    background-color: #7b6bdb; /* Lighter Purple */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.btn-accent:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* -----------------------------------------------------------------------
+   8. FEATURE: LOGIC LAB (CANVAS CONSOLE)
+   ----------------------------------------------------------------------- */
+.lab-console {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.screen-wrapper {
+    position: relative;
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lab-canvas {
+    width: 100%;
+    max-width: 600px;
+    background: #050505;
+    image-rendering: pixelated; 
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-family: monospace;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 5px;
+}
+
+.lab-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lab-btn {
+    background: var(--bg-card);
+    border: 1px solid #334155;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lab-btn:hover, .lab-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.btn-action {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+.btn-action:active {
+    transform: scale(0.95);
+}
+
+/* -----------------------------------------------------------------------
+   9. FEATURE: PROJECT TRACKER & STATUS
+   ----------------------------------------------------------------------- */
+.tracker-board {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.status-item {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-left: 4px solid #64748b;
+}
+
+.status-item.active-project {
+    border-left: 4px solid var(--accent);
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.badge.working {
+    background: rgba(56, 189, 248, 0.2);
+    color: var(--accent);
+}
+
+.badge.planning {
+    background: rgba(148, 163, 184, 0.2);
+    color: var(--text-muted);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #334155;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+.percent {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    float: right;
+    margin-top: 5px;
+}
+
+/* -----------------------------------------------------------------------
+   10. FEATURE: TIMELINE
+   ----------------------------------------------------------------------- */
+.timeline-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: #334155;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.right::after {
+    left: -8px;
+}
+
+/* -----------------------------------------------------------------------
+   11. WIDGET: TERMINAL
+   ----------------------------------------------------------------------- */
+.terminal-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 300;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.terminal-toggle i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.terminal-hidden { display: none; }
+.terminal-visible { display: block; }
+
+#terminal-modal {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    height: 350px;
+    background: var(--terminal-bg);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    z-index: 300;
+    font-size: 0.8rem;
+}
+
+.terminal-header {
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.terminal-body {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+}
+
+.input-line { display: flex; gap: 5px; }
+
+#cmd-input {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    flex-grow: 1;
+    outline: none;
+    font-family: monospace;
+}
+
+/* -----------------------------------------------------------------------
+   12. FOOTER
+   ----------------------------------------------------------------------- */
+footer {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 40px 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    margin-top: 50px; /* Separates footer from last content */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section.legal { text-align: left; }
+.footer-section.navigation { text-align: center; }
+.footer-section.social { text-align: right; }
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #a0a0a0;
+}
+
+footer a:hover {
+    color: var(--accent-alt);
+}
+
+/* -----------------------------------------------------------------------
+   13. ANIMATIONS & RESPONSIVE BREAKPOINTS
+   ----------------------------------------------------------------------- */
+/* Fade In Animation Classes */
+.fade-in-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+    /* Split sections stack vertically */
+    .split-section {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer stacks vertically */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        text-align: center !important;
+        margin-bottom: 30px;
+    }
+
+    /* Timeline Adjustments */
+    .timeline-wrapper::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .timeline-item.left { text-align: left; }
+    .timeline-item.left::after { left: 23px; }
+    .timeline-item.right { left: 0; }
+    .timeline-item.right::after { left: 23px; }
+}

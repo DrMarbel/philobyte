@@ -3,7 +3,7 @@
     --bg-card: #1e293b;
     --text-main: #e2e8f0;
     --text-muted: #94a3b8;
-    --accent: #38bdf8;
+    --accent: #7800FF;
     --accent-red: #ef4444;
     --accent-green: #22c55e;
     --accent-glow: rgba(56, 189, 248, 0.2);
@@ -192,7 +192,13 @@ body {
     font-size: 0.8rem;
 }
 .terminal-header { background: #333; color: #fff; padding: 5px 10px; font-size: 0.7rem; display: flex; justify-content: space-between; cursor: pointer;}
-.terminal-body { padding: 10px; flex-grow: 1; overflow-y: auto; color: var(--terminal-green); }
+.terminal-body {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+}
 .input-line { display: flex; gap: 5px; }
 #cmd-input { background: transparent; border: none; color: var(--text-main); flex-grow: 1; outline: none; font-family: monospace; }
 
@@ -211,3 +217,117 @@ body {
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .fade-in-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
 .fade-in-scroll.visible { opacity: 1; transform: translateY(0); }
+
+/* --- Footer Styles --- */
+footer {
+    background-color: #121212; /* Matches your dark theme */
+    color: #e0e0e0;
+    padding: 40px 20px;
+    border-top: 1px solid #333; /* Subtle top border for separation */
+    font-family: monospace; /* Keeps consistency with your site font */
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex; /* This creates the row layout */
+    justify-content: space-between; /* Pushes left/right sections to edges */
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the footer content on large screens */
+}
+
+/* --- Columns --- */
+.footer-section {
+    flex: 1; /* Makes all 3 sections take up equal available space */
+}
+
+/* Specific Alignment */
+.footer-section.legal {
+    text-align: left;
+}
+
+.footer-section.navigation {
+    text-align: center;
+}
+
+.footer-section.social {
+    text-align: right;
+}
+
+/* --- Typography & Links --- */
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #6a5acd; /* That purple accent color from your header */
+}
+
+/* --- Mobile Responsiveness --- */
+/* This stacks them vertically on phones so they don't get squished */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center !important; /* Forces everything to center on mobile */
+        margin-bottom: 30px;
+    }
+}
+
+/* --- Button Styles --- */
+.btn {
+    display: inline-block; /* Allows padding and margins to work on links */
+    padding: 12px 28px;
+    margin-top: 25px; /* Adds breathing room between text and button */
+    font-family: monospace; /* Keeps consistency with your site font */
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px; /* Slightly rounded corners look professional */
+    font-weight: 700; /* Bold text makes it pop */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* The Primary Accent Button Color */
+.btn-accent {
+    background-color: #6a5acd; /* That purple/slate blue accent color */
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+/* Hover Effects - Makes it feel "alive" */
+.btn-accent:hover {
+    background-color: #7b6bdb; /* Slightly lighter purple on hover */
+    transform: translateY(-3px); /* A subtle "lift" effect upwards */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Increased shadow on lift */
+}
+
+/* Active/Click Effect */
+.btn-accent:active {
+    transform: translateY(-1px); /* Pushes back down slightly when clicked */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Developer: Dr. Marbel
+        Company: Marbel Softworks
+        Date Started: 01.13.2926
+        Date Modified: 01.26.2026
+    -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philobyte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!--Navigation-->
+    <nav class="navbar">
+        <div class="logo">PHILO<span class="highlight">BYTE</span></div>
+        <ul class="nav-links">
+            <li><a href="associates.html">Associates</a></li>
+            <li><a href="#tracker">Tracker</a></li>
+            <li><a href="#" onclick="initiateContact()">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!--Hero Section-->
+    <header class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>PHILOBYTE</h1>
+            <p>Forging Digital Reality. Driven by Logic.</p>
+            <div class="hero-btns">
+                <a href="#lab" class="btn">View Logic Lab</a>
+                <a href="#" onclick="initiateContact()" class="btn btn-outline">Secure Uplink</a>
+            </div>
+        </div>
+    </header>
+
+    <!--About Cards-->
+    <section id="about" class="container split-section">
+        <div class="card entity fade-in-scroll">
+            <h2>The Mission</h2>
+            <h3>Philobyte</h3>
+            <p>Philobyte is a software development initiative dedicated to precision, entertainment, and utility. We design digital tools that prioritize robust architecture and user respect, eliminating bloat in favor of performance. Our apps and games are designed and developed with features and systems meant to not only showcase our skills, but also to bring years of enjoyment to those who use them.</p>
+        </div>
+        <div class="card architect fade-in-scroll">
+            <h2>The Developer</h2>
+            <h3>Dr. Marbel - Lead Software Developer & Architect</h3>
+            <p>Behind the interface is a single focused mind. I specialize in full-stack development, bridging raw backend logic with seamless frontend experiences. I build what is necessary, and I build it to last. My designs may be minimalistic and bland, compared to other developers, but they are just as polished and feature-rich.</p>
+        </div>
+        <div class="card architect fadr-in-scroll">
+          <h2>LiteSoft Architecture</h2>
+          <h3>What is Litesoft?</h3>
+          <p>LiteSoft is a "Hard-Local" software architecture designed to transform the modern web stack—HTML5, CSS3, JS, and local engines like PHP—into a high-performance, universal runtime for strictly offline applications. By utilizing the browser as a local execution engine rather than a gateway to the internet, LiteSoft aims to deliver "immortal" software that remains small in size, requires zero installation, and achieves the near-zero latency typical of high-end gaming hardware. Its primary purpose is to ensure absolute data sovereignty and technological longevity, providing users with a permanent digital tool that operates independently of cloud dependencies, accounts, or external connectivity.</p>
+        </div>
+    </section>
+
+    <!--Logic Lab-->
+    <section id="lab" class="container">
+        <h2 class="section-title">Logic Lab</h2>
+        <p style="text-align:center; margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+            Interactive simulations of project algorithms.
+        </p>
+        
+        <div class="lab-console fade-in-scroll">
+            <div class="screen-wrapper">
+                <canvas id="lab-canvas" width="600" height="300"></canvas>
+                <div class="overlay-text" id="lab-status">System Standby... Select Module.</div>
+            </div>
+
+            <div class="lab-controls">
+                <button class="lab-btn" onclick="runSimulation('dungeon')">
+                    <i class="fas fa-dungeon"></i> Endgeon Gen
+                </button>
+                <button class="lab-btn" onclick="runSimulation('market')">
+                    <i class="fas fa-chart-line"></i> Market Econ
+                </button>
+                <button class="lab-btn" onclick="runSimulation('clear')">
+                    <i class="fas fa-power-off"></i> Reset
+                </button>
+            </div>
+            
+            <div id="market-actions" style="display:none; text-align: center; margin-top: 15px;">
+                <button class="btn-action" onclick="marketCrash()">INJECT SUPPLY (CRASH PRICE)</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Technical Arsenal-->
+    <section id="arsenal" class="container">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="tech-grid fade-in-scroll">
+            <div class="tech-card">
+                <i class="fab fa-js"></i>
+                <h3>Web Technologies</h3>
+                <p>HTML5, CSS3, JavaScript, PHP</p>
+            </div>
+            <div class="tech-card">
+                <i class="fab fa-java"></i>
+                <h3>Core Systems</h3>
+                <p>C#, Java</p>
+            </div>
+            <div class="tech-card">
+                <i class="fas fa-terminal"></i>
+                <h3>Automation & Scripting</h3>
+                <p>Bash, PowerShell</p>
+            </div>
+            <div class="tech-card">
+                <i class="fa-solid fa-database"></i>
+                <h3>Database Technologies</h3>
+                <p>MySQL</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Operations Tracker-->
+    <section id="tracker" class="container">
+        <h2 class="section-title">Current Operations</h2>
+        <div class="tracker-board fade-in-scroll">
+            <div class="status-item active-project">
+                <div class="status-header">
+                    <span class="badge working">IN DEVELOPMENT</span>
+                </div>
+                <h3>Project Endgeon Lite</h3>
+                <p>A roguelike dungeon crawler designed specifically within "Litesoft" technical requirements. Focusing on text-based mechanics and procedural generation.</p>
+                <div class="progress-bar">
+                    <div class="fill" style="width: 45%;"></div>
+                </div>
+                <span class="percent">45% Complete</span>
+            </div>
+            <div class="status-item active-project">
+                <div class="status-header">
+                    <span class="badge working">IN DEVELOPMENT</span>
+                </div>
+                <h3>Philobit</h3>
+                <p>An online technical education center designed and tasked with  instilling practical skills, and providing both on-hand training and technical skills required for a number of fields.</p>
+                <div class="progress-bar">
+                    <div class="fill" style="width: 0%;"></div>
+                </div>
+                <span class="percent">0% Complete</span>
+            </div>
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Haunter</h3>
+                <p>Initial concept and scope definition.</p>
+            </div>
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Trader</h3>
+                <p>Architecture outline and logic flow analysis.</p>
+            </div>
+            <div class="status-item">
+                <span class="badge planning">PLANNING</span>
+                <h3>Project Instigate</h3>
+                <p>Feasibility study and core requirement gathering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Release Timeline-->
+    <section id="timeline" class="container">
+        <h2 class="section-title">Release Timeline</h2>
+        <div class="timeline-wrapper">
+            <div class="timeline-item left fade-in-scroll">
+                <div class="content">
+                    <h3>v1.0 - Philobyte Live</h3>
+                    <span class="date">Jan 2026</span>
+                    <p>Official deployment of the Philobyte central portfolio and tracker.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="footer-container">
+        <div class="footer-section legal">
+            <p>&copy; 2026 Philobyte. &copy; 2026 Marbel Softworks. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+        <div class="footer-section navigation">
+            <h3>Sitemap</h3>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#philobit">Philobit</a></li>
+                <li><a href="#marbel">Marbel Softworks</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h3>Connect</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <div class="terminal-toggle" onclick="toggleTerminal()">
+        <i class="fas fa-terminal"></i>
+    </div>
+    
+    <div id="terminal-modal" class="terminal-hidden" style="display: none;" onclick="forceFocus()">
+        <div class="terminal-header">
+            <span>user@philobyte:~</span>
+            <span class="term-close" onclick="toggleTerminal()">_</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <div id="terminal-logs">
+                <p>Philobyte OS v0.0.1. Type 'help' for commands.</p>
+            </div>
+            
+            <div class="input-line">
+                <span class="prompt" id="term-prompt">$</span>
+                <input type="text" id="cmd-input" autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

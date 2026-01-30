@@ -39,7 +39,7 @@ All items below reflect the present content as of 2026-01-29.
 
 ## Credit
 
-- Development & Design: Martin Belt
+- Development & Design: Dr. Marbel, Marbel Softworks
 
 ## Notes & Next Steps
 

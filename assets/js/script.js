@@ -111,7 +111,7 @@ function startDungeonGen(ctx, canvas) {
         ctx.fillStyle = '#334155'; ctx.fillRect(x*size, y*size, size, size);
         ctx.fillStyle = '#38bdf8'; ctx.fillRect(x*size, y*size, size, size);
         steps++;
-        if (steps > maxSteps) clearInterval(simulationInterval);
+        if (steps > maxSteps) { clearInterval(simulationInterval); simulationInterval = null; }
     }, 20);
 }
 
@@ -210,15 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         writeLine("EXECUTING UPLINK...", "#22c55e");
                         
                         // Copy to Clipboard Backup
-                        navigator.clipboard.writeText(uplinkPayload).catch(err => console.log(err));
+                        navigator.clipboard.writeText(uplinkPayload).catch(() => {});
 
-                        // DIRECT LAUNCH
-                        // Since this is triggered by the 'Enter' key press on 'Y',
-                        // The browser allows this navigation instantly.
-                        window.location.href = `mailto:${usr}${dmain}${dot}?subject=Secure Uplink&body=${encodeURIComponent(uplinkPayload)}`;
-                        
+                        // Direct launch via mail client
+                        window.location.href = `mailto:${CONTACT_EMAIL}?subject=Secure Uplink&body=${encodeURIComponent(uplinkPayload)}`;
+
                         setTimeout(() => {
-                            writeLine("SESSION TERMINATED.", "#text-muted");
+                            writeLine("SESSION TERMINATED.", "#94a3b8");
                             terminalState = 'SHELL';
                             document.getElementById('term-prompt').innerText = "$";
                         }, 1000);

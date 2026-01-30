@@ -45,5 +45,3 @@ All items below reflect the present content as of 2026-01-29.
 
 - To preview, open `index.html` in a browser. No build step required.
 - Suggested improvements: move inline handlers to unobtrusive event listeners, extract simulation code into small modules, and add basic tests or a simple build pipeline for minification.
-
-If you'd like, I can remove remaining inline event handlers, consolidate assets, or add a tiny automated build step (npm + terser/cleancss) and provide commands to run it.
